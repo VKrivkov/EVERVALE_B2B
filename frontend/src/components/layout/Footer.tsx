@@ -1,11 +1,6 @@
 import React from "react";
 import FooterColumn from "../common/FooterColumn";
 import Logo from "../ui/Logo";
-import Image from "next/image";
-import facebook from "@/public/icons/facebook-logo.svg";
-import twitter from "@/public/icons/twitter-logo.svg";
-import wtf from "@/public/icons/wtf-logo.svg";
-import instagram from "@/public/icons/instagram-logo.svg";
 
 const Footer = () => {
   return (
@@ -17,60 +12,6 @@ const Footer = () => {
             <div className="space-y-1 text-white/80">
               <p>+352 662 345 456</p>
               <p>contact@evervale.com</p>
-            </div>
-            <div className="mt-2 flex gap-5">
-              <a
-                href="#"
-                className="flex items-center justify-center"
-                aria-label="Facebook"
-              >
-                <Image
-                  src={facebook}
-                  alt="Facebook"
-                  width={10}
-                  height={10}
-                  className="filter brightness-0 invert"
-                />
-              </a>
-              <a
-                href="#"
-                className="flex items-center justify-center"
-                aria-label="Twitter"
-              >
-                <Image
-                  src={twitter}
-                  alt="Twitter"
-                  width={20}
-                  height={20}
-                  className="filter brightness-0 invert"
-                />
-              </a>
-              <a
-                href="#"
-                className="flex items-center justify-center"
-                aria-label="Instagram"
-              >
-                <Image
-                  src={instagram}
-                  alt="Instagram"
-                  width={20}
-                  height={20}
-                  className="filter brightness-0 invert"
-                />
-              </a>
-              <a
-                href="#"
-                className="flex items-center justify-center"
-                aria-label="WTF"
-              >
-                <Image
-                  src={wtf}
-                  alt="WTF"
-                  width={20}
-                  height={20}
-                  className="filter brightness-0 invert"
-                />
-              </a>
             </div>
           </div>
           <div className="flex w-full flex-col items-center gap-8 text-center sm:flex-row sm:justify-center sm:gap-10 md:w-auto md:items-start md:justify-start md:gap-12">

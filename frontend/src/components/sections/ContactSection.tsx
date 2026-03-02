@@ -2,10 +2,6 @@ import React from "react";
 import InfoContainer from "../common/InfoContainer";
 import Card from "../common/Card";
 import Button from "../ui/Button";
-import Image from "next/image";
-import facebookIcon from "../../../public/icons/facebook-logo.svg";
-import twitterIcon from "../../../public/icons/twitter-logo.svg";
-import instagramIcon from "../../../public/icons/instagram-logo.svg";
 import { cn } from "../../lib/utils";
 
 interface ContactSectionProps {
@@ -33,7 +29,7 @@ const ContactSection: React.FC<ContactSectionProps> = ({
         </InfoContainer>
 
         <div className="grid gap-10 lg:grid-cols-[1fr_minmax(0,640px)] lg:items-stretch">
-          <div className="flex h-full flex-col justify-between gap-8 text-pr_w">
+          <div className="flex h-full flex-col justify-top gap-8 text-pr_w">
             <div
               data-reveal
               style={{ "--reveal-delay": "120ms" } as React.CSSProperties}
@@ -51,55 +47,6 @@ const ContactSection: React.FC<ContactSectionProps> = ({
                 Phone Number
               </p>
               <p className="mt-2 display-md text-pr_y">+352 662 345 456</p>
-            </div>
-            <div
-              data-reveal
-              style={{ "--reveal-delay": "280ms" } as React.CSSProperties}
-            >
-              <p className="text-ag-12 uppercase tracking-[0.12em] text-white/60">
-                Social Media
-              </p>
-              <div className="mt-4 flex flex-wrap gap-3">
-                <a
-                  href="#"
-                  className="flex h-10 w-14 items-center justify-center rounded-full border border-pr_y text-white transition-all duration-200 ease-out hover:bg-white/10 hover:border-white/90"
-                >
-                  <Image
-                    src={facebookIcon}
-                    alt="Facebook"
-                    width={10}
-                    height={10}
-                    className="brightness-0 invert"
-                  />
-                  <span className="sr-only">Facebook</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex h-10 w-14 items-center justify-center rounded-full border border-pr_y text-white transition-all duration-200 ease-out hover:bg-white/10 hover:border-white/90"
-                >
-                  <Image
-                    src={twitterIcon}
-                    alt="Twitter"
-                    width={18}
-                    height={18}
-                    className="brightness-0 invert"
-                  />
-                  <span className="sr-only">Twitter</span>
-                </a>
-                <a
-                  href="#"
-                  className="flex h-10 w-14 items-center justify-center rounded-full border border-pr_y text-white transition-all duration-200 ease-out hover:bg-white/10 hover:border-white/90"
-                >
-                  <Image
-                    src={instagramIcon}
-                    alt="Instagram"
-                    width={18}
-                    height={18}
-                    className="brightness-0 invert"
-                  />
-                  <span className="sr-only">Instagram</span>
-                </a>
-              </div>
             </div>
           </div>
           <div className="w-full lg:ml-auto lg:max-w-[640px] lg:h-full">
