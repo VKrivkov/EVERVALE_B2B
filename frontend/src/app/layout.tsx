@@ -4,9 +4,9 @@ import { nunitoSans } from "../fonts/nunito";
 import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import ConsentAwareGTM from "../components/analytics/ConsentAwareGTM";
 
 import Script from "next/script";
-import { GoogleTagManager } from '@next/third-parties/google';
 
 export const metadata: Metadata = {
   title: "Evervale B2B | Wholesale Cannabis Seeds",
@@ -37,7 +37,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${nunitoSans.variable} ${gilroy.variable} antialiased`}>
-        <GoogleTagManager gtmId="GTM-T3SWJ2DB" />
+        <ConsentAwareGTM />
         <Header />
         <div className="app-shell">
           <main className="px-4 sm:px-6 md:px-8 lg:px-[130px] pt-[140px] pb-[140px] lg:pt-[200px] lg:pb-[200px]">
