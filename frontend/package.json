@@ -10,7 +10,6 @@
     "build:frontend": "yarn --cwd frontend build"
   },
   "dependencies": {
-    "@next/third-parties": "^16.2.2",
     "lucide-react": "^0.556.0",
     "next": "14.2.10",
     "react": "^18.3.1",
