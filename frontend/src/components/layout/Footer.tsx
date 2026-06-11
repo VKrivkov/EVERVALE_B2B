@@ -27,9 +27,7 @@ const footerColumns = [
   {
     title: "SUPPORT",
     links: [
-      { label: "Help/FAQ", href: "/" },
-      { label: "Shipping & Returns", href: "/" },
-      { label: "Community", href: "/" },
+      { label: "Help/FAQ", href: "mailto:support@evervale.org" },
     ],
   },
   {
@@ -39,6 +37,7 @@ const footerColumns = [
       { label: "Terms & Conditions", href: "/terms-and-conditions" },
       { label: "Return & Refund Policy", href: "/return-refund-policy" },
       { label: "Disclaimer", href: "/disclaimer" },
+      { label: "Germination Guarantee", href: "/germination-guarantee" },
     ],
   },
 ];
