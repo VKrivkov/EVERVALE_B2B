@@ -16,9 +16,21 @@ type ThemeGradient = "gy-gradient" | "gw-gradient";
 
 type ThemeSize = "hero" | "xxl" | "xl" | "lg" | "md" | "sm" | "xs" | "xxs";
 
+/**
+ * B5 — heading level. This component used to hard-code <h1> for its title,
+ * which gave the homepage seven of them (hero + every section + every card) and
+ * left the real page heading indistinguishable from a card label.
+ *
+ * The default is now <h2>: a section heading, which is what almost every use of
+ * this component actually is. A page's single <h1> is written out by that page.
+ */
+type HeadingLevel = "h1" | "h2" | "h3" | "h4";
+
 interface InfoContainerProps {
   title: string;
   children: ReactNode;
+  /** Heading element for `title`. Defaults to "h2". */
+  as?: HeadingLevel;
   titleColor?: ThemeColor | string;
   contentColor?: ThemeColor | string;
   titleSize?: ThemeSize | string;
@@ -35,6 +47,7 @@ interface InfoContainerProps {
 const InfoContainer: React.FC<InfoContainerProps> = ({
   title,
   children,
+  as: Heading = "h2",
   titleColor,
   contentColor,
   titleSize,
@@ -184,9 +197,9 @@ const InfoContainer: React.FC<InfoContainerProps> = ({
       style={revealStyle}
       className={`flex flex-col ${containerGap} ${alignmentClass} ${className}`}
     >
-      <h1 className={titleClasses} style={getStyle(titleColor)}>
+      <Heading className={titleClasses} style={getStyle(titleColor)}>
         {title}
-      </h1>
+      </Heading>
       <div className={contentClasses} style={getStyle(contentColor)}>
         {children}
       </div>

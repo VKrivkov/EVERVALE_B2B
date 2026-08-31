@@ -5,15 +5,32 @@ import "./globals.css";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import Script from "next/script";
+import JsonLd from "../components/seo/JsonLd";
+import { organizationSchema, webSiteSchema } from "../lib/seo/schema";
+import { PAGE_SEO, SITE_URL } from "../lib/seo/siteConfig";
 
 const COOKIEYES_SCRIPT_SRC =
   "https://cdn-cookieyes.com/client_data/87c379f49309a488b710ea709cf703f4/script.js";
 const GTM_ID = "GTM-KGFP25F4";
 
+/**
+ * B3/B4 — the root layout no longer carries a title or description of its own.
+ *
+ * It used to, and because no page overrode them, all six pages of this site
+ * shipped one identical title and one identical description — half of the
+ * duplicates the audit counted across both domains. Each page now sets its own
+ * via `pageMetadata()`; what stays here is only what is genuinely site-wide.
+ *
+ * `metadataBase` is what turns the relative canonical/OG paths into absolute
+ * URLs on b2b.evervale.org rather than on the storefront.
+ */
 export const metadata: Metadata = {
-  title: "Evervale B2B | Wholesale Cannabis Seeds",
-  description:
-    "Wholesale cannabis genetics for licensed distributors and seed banks. GACP certification, full traceability from seed to shipment.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    // Every page supplies its own title; this is the fallback if one forgets.
+    default: PAGE_SEO.home.title,
+    template: "%s",
+  },
   icons: {
     icon: [
       { url: "/Favicon.svg", type: "image/svg+xml" },
@@ -82,6 +99,9 @@ export default function RootLayout({
             style={{ display: "none", visibility: "hidden" }}
           />
         </noscript>
+        {/* A4 — Organization + WebSite, site-wide. Both carry a stable @id, so
+            repeating them per page describes one entity, not six. */}
+        <JsonLd schema={[organizationSchema(), webSiteSchema()]} />
         <Header />
         <div className="app-shell">
           <main className="px-4 sm:px-6 md:px-8 lg:px-[130px] pt-[140px] pb-[140px] lg:pt-[200px] lg:pb-[200px]">

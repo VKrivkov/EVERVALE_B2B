@@ -8,6 +8,7 @@ import InfoContainer from "../common/InfoContainer";
 import Card from "../common/Card";
 import Button from "../ui/Button";
 import { cn } from "../../lib/utils";
+import { trackContactFormSubmit } from "../../lib/analytics";
 
 const API_URL = "https://backend.evervale.org/forms/contact-us";
 
@@ -150,6 +151,10 @@ const ContactSection: React.FC<ContactSectionProps> = ({
         throw new Error(data?.message || "Failed to submit the form.");
       }
 
+      // C2 — a conversion is a message the backend accepted, so this sits
+      // after the !response.ok throw above, not next to the submit handler.
+      trackContactFormSubmit();
+
       setSuccessMessage("Your message has been sent successfully.");
       setErrors({});
       setFormData({
@@ -213,7 +218,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({
                 >
                   <Image
                     src={instagram}
-                    alt="Instagram"
+                    alt=""
+                    aria-hidden="true"
                     width={18}
                     height={18}
                     className="filter brightness-0 invert"
@@ -227,7 +233,8 @@ const ContactSection: React.FC<ContactSectionProps> = ({
                 >
                   <Image
                     src={linkedin}
-                    alt="LinkedIn"
+                    alt=""
+                    aria-hidden="true"
                     width={18}
                     height={18}
                     className="filter brightness-0 invert"

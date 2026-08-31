@@ -56,7 +56,7 @@ const Header = () => {
   );
 
   const handleCatalogDownload = useCallback(() => {
-    triggerCatalogDownload();
+    triggerCatalogDownload("header");
   }, []);
 
   useEffect(() => {

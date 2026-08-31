@@ -2,8 +2,12 @@ import React from "react";
 import Card from "../common/Card";
 import InfoContainer from "../common/InfoContainer";
 import Image from "next/image";
-import cannabis1 from "../../../public/images/ExplanationSectionImages/cannabis1.png";
-import cannabis2 from "../../../public/images/ExplanationSectionImages/cannabis2.png";
+// B6 — WebP, not PNG. These two were 289 KB and 252 KB, the only assets on the
+// site over the audit's 100 KB line; re-encoded at the same 532x267 they are
+// 28 KB and 24 KB. `images.unoptimized` is on (static export), so the file that
+// ships is exactly the file imported here — the format has to be right at rest.
+import cannabis1 from "../../../public/images/ExplanationSectionImages/cannabis1.webp";
+import cannabis2 from "../../../public/images/ExplanationSectionImages/cannabis2.webp";
 import { cn } from "../../lib/utils";
 
 interface ExplanationSectionProps {
@@ -43,10 +47,11 @@ const ExplanationSection: React.FC<ExplanationSectionProps> = ({
           >
             <Image
               src={cannabis1}
-              alt="cannabis"
+              alt="Flowering cannabis plant maturing under LED lights in an indoor cultivation facility"
               className="mb-4 md:mb-5 lg:mb-6 w-full h-auto rounded-tr-2xl rounded-bl-2xl"
             />
             <InfoContainer
+              as="h3"
               title="Wholesale Seed Sales"
               textAlign="left"
               titleClassName="display-md_bold text-pr_dg"
@@ -66,10 +71,11 @@ const ExplanationSection: React.FC<ExplanationSectionProps> = ({
           >
             <Image
               src={cannabis2}
-              alt="cannabis"
+              alt="Close-up of purple-tinged cannabis flowers on plants in late bloom"
               className="mb-4 md:mb-5 lg:mb-6 w-full h-auto rounded-tr-2xl rounded-bl-2xl"
             />
             <InfoContainer
+              as="h3"
               title="Custom Breeding"
               textAlign="left"
               titleClassName="display-md_bold text-pr_dg"

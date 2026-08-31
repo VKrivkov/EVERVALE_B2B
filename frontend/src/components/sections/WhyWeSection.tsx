@@ -57,14 +57,14 @@ const WhyWeSection: React.FC<WhyWeSectionProps> = ({
   sectionId,
 }) => {
   const handleCatalogClick = () => {
-    triggerCatalogDownload();
+    triggerCatalogDownload("why_us");
   };
 
   return (
     <section id={sectionId} className={cn("flex flex-col gap-10", className)}>
       <div className="flex w-full flex-col items-left gap-6 text-center md:flex-row md:items-center md:justify-between md:text-left">
         <InfoContainer
-          title="Why choose us?"
+          title="Why licensed buyers choose Evervale"
           titleClassName="text-[clamp(2rem,3.4vw,3.2rem)] leading-[1.08] font-extrabold text-pr_w"
           contentClassName="display-md_thin text-pr_w/70"
           containerGap="gap-4"
@@ -95,21 +95,29 @@ const WhyWeSection: React.FC<WhyWeSectionProps> = ({
               { "--reveal-delay": `${120 + index * 80}ms` } as React.CSSProperties
             }
           >
+            {/* A3 — decorative watermark: it repeats the icon below it and
+                carries no information, so an empty alt keeps screen readers
+                from announcing the card's title three times over. */}
             <Image
               src={card.background}
-              alt={`${card.title} background icon`}
+              alt=""
+              aria-hidden="true"
               className="pointer-events-none absolute -right-10 -top-8 h-[260px] w-[260px] opacity-30"
             />
             <div className="flex h-full flex-col justify-between gap-6">
               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0d3326]">
+                {/* Decorative too — the heading right beside it says the
+                    same thing in words. */}
                 <Image
                   src={card.badgeIcon}
-                  alt={`${card.title} icon`}
+                  alt=""
+                  aria-hidden="true"
                   width={36}
                   height={36}
                 />
               </div>
               <InfoContainer
+                as="h3"
                 title={card.title}
                 textAlign="left"
                 titleClassName="display-md_bold text-pr_dg"

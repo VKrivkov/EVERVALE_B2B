@@ -22,9 +22,11 @@ const SupplySection: React.FC<SupplySectionProps> = ({
         className="flex w-full flex-col items-center justify-center gap-6 py-12 sm:py-14 md:py-16 min-h-[360px] sm:min-h-[400px] md:min-h-[460px]"
         data-reveal
       >
+        {/* A3 — decorative: the heading underneath carries the meaning. */}
         <Image
           src={badge}
-          alt="badge icon"
+          alt=""
+          aria-hidden="true"
           className="mb-1"
           width={140}
           height={140}

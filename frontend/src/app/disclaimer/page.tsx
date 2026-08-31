@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+import JsonLd from "@/components/seo/JsonLd";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { breadcrumbSchema } from "@/lib/seo/schema";
+import { PAGE_SEO } from "@/lib/seo/siteConfig";
+
+// B3/B4 — this page's own title, description and self-referencing canonical.
+// Before this, all six pages inherited one title/description from the layout.
+export const metadata: Metadata = pageMetadata("disclaimer");
+
 export default function DisclaimerPage() {
   const documentText = `DISCLAIMER
 Version: May 2026
@@ -124,9 +134,13 @@ Phone: +357 978 162 42`;
 
   return (
     <div className=" text-pr_w">
+      {/* A4 — Home &gt; Disclaimer trail; the site is only two levels deep. */}
+      <JsonLd schema={breadcrumbSchema("disclaimer")} />
       <section className="w-full px-4 pt-[120px] pb-24 sm:px-6 md:px-8 lg:px-12 xl:px-[130px]">
         <div className="mx-auto max-w-5xl text-center">
-          <h1 className="text-3xl font-semibold sm:text-4xl">Disclaimer</h1>
+          <h1 className="text-3xl font-semibold sm:text-4xl">
+            {PAGE_SEO.disclaimer.heading}
+          </h1>
           <p className="mt-3 text-sm text-pr_w/70">Last updated: May 2026</p>
           <article className="mt-8 whitespace-pre-line rounded-3xl border border-pr_w/20 bg-pr_w/5 px-6 py-8 text-left text-sm leading-7 text-pr_w/85 shadow-xl backdrop-blur-sm sm:px-8 sm:py-10">
             {documentText}

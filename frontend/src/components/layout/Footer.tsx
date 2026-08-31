@@ -10,10 +10,12 @@ const footerColumns = [
     links: [
       { label: "Home", href: "https://evervale.org/" },
       { label: "Seeds", href: "https://evervale.org/products" },
-      {
-        label: "My Account",
-        href: "https://evervale.org/signin?next=/user_profile/profile",
-      },
+      // B2 — links to /signin, not /signin?next=/user_profile/profile.
+      // The audit found those two indexed as duplicates of each other. The
+      // storefront still builds ?next= URLs when it redirects a signed-out
+      // visitor, but those are runtime router.push calls that no crawler
+      // follows; this footer was the last one written into markup as an href.
+      { label: "My Account", href: "https://evervale.org/signin" },
     ],
   },
   {
@@ -61,7 +63,8 @@ export default function Footer() {
               >
                 <Image
                   src={instagram}
-                  alt="Instagram"
+                  alt=""
+                  aria-hidden="true"
                   width={20}
                   height={20}
                   className="filter brightness-0 invert"
@@ -74,7 +77,8 @@ export default function Footer() {
               >
                 <Image
                   src={linkedin}
-                  alt="LinkedIn"
+                  alt=""
+                  aria-hidden="true"
                   width={20}
                   height={20}
                   className="filter brightness-0 invert"
