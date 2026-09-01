@@ -16,7 +16,7 @@ const tabs: SectionTab[] = [
   { id: "contact", label: "Contact" },
 ];
 
-const HEADER_OFFSET = 110;
+const HEADER_OFFSET = 96;
 const PROGRAMMATIC_SCROLL_LOCK_MS = 1200;
 const ACTIVE_LINE_EXTRA_PX = 12;
 
@@ -176,7 +176,7 @@ const Header = () => {
     <>
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-pr_dg/95 lg:bg-pr_dg/90 lg:backdrop-blur">
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-[130px]">
-          <div className="hidden h-[80px] items-center justify-between gap-8 lg:flex lg:h-[88px]">
+          <div className="hidden h-[80px] items-center justify-between gap-8 lg:flex lg:h-[96px]">
             <Logo />
             <SectionSlider
               tabs={tabs}
@@ -188,7 +188,7 @@ const Header = () => {
             </Button>
           </div>
 
-          <div className="flex h-[72px] items-center justify-between sm:h-[80px] md:h-[88px] lg:hidden">
+          <div className="flex h-[70px] max-[537px]:h-[62px] items-center justify-between sm:h-[80px] md:h-[96px] lg:hidden">
             <Logo />
             <div className="flex items-center gap-2">
               <button
@@ -225,7 +225,7 @@ const Header = () => {
       {mobileMenuMounted && (
         <div
           className={cn(
-            "fixed inset-x-0 top-[72px] z-40 border-b border-white/10 bg-pr_dg/95 sm:top-[80px] md:top-[88px] lg:hidden",
+            "fixed inset-x-0 top-[70px] z-40 border-b border-white/10 bg-pr_dg/95 max-[537px]:top-[62px] sm:top-[80px] md:top-[96px] lg:hidden",
             mobileMenuOpen ? "mobile-menu-enter" : "mobile-menu-exit",
           )}
           onAnimationEnd={() => {

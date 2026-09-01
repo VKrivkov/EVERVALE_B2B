@@ -104,9 +104,12 @@ export default function RootLayout({
         <JsonLd schema={[organizationSchema(), webSiteSchema()]} />
         <Header />
         <div className="app-shell">
-          <main className="px-4 sm:px-6 md:px-8 lg:px-[130px] pt-[140px] pb-[140px] lg:pt-[200px] lg:pb-[200px]">
-            {children}
-          </main>
+          {/* Matches the storefront's shell: <main> owns only the bottom
+              gutter, and each page section supplies its own side padding and
+              header clearance. It used to add px-4..lg:px-[130px] and
+              pt-[140px] here as well, which the legal pages then repeated —
+              doubling both to 260px of side padding and 320px above the H1. */}
+          <main className="pb-6 lg:pb-20">{children}</main>
           <Footer />
         </div>
       </body>

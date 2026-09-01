@@ -126,7 +126,7 @@ Supervisory authority: www.uoou.cz`;
       <JsonLd schema={breadcrumbSchema("privacyPolicy")} />
       <section className="w-full px-4 pt-[120px] pb-24 sm:px-6 md:px-8 lg:px-12 xl:px-[130px]">
         <div className="mx-auto max-w-5xl text-center">
-          <h1 className="text-3xl font-semibold sm:text-4xl">
+          <h1 className="page-h1">
             {PAGE_SEO.privacyPolicy.heading}
           </h1>
           <p className="mt-3 text-sm text-pr_w/70">Last updated: May 2026</p>
